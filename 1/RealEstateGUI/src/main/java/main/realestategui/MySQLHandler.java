@@ -104,4 +104,26 @@ public class MySQLHandler {
             return new ArrayList<Ad>();
         }
     }
+
+    public static ArrayList<String> getNames(){
+        String queryStr =
+                "SELECT name FROM `sellers`";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(queryStr);
+            ResultSet resultSet = stmt.executeQuery();
+
+            ArrayList<String> names = new ArrayList<>();
+
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                names.add(name);
+            }
+            return names;
+        }
+        catch(Exception e){
+            System.out.println("Data retrieval failed.");
+            return new ArrayList<String>();
+        }
+    }
 }
