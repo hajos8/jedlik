@@ -14,6 +14,8 @@ public class LoadFromCSV {
 
             ArrayList<Ad> list = new ArrayList<>();
 
+            sc.nextLine(); // skip header
+
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] parts = line.split(";");
