@@ -1,6 +1,6 @@
 package main;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Ad {
     int id;
@@ -13,7 +13,7 @@ public class Ad {
     boolean freeOfCharge;
     String imageUrl;
     String latlong;
-    LocalDateTime createdAt;
+    LocalDate createdAt;
 
     public int getId() {
         return id;
@@ -45,7 +45,7 @@ public class Ad {
     public String getLatlong() {
         return latlong;
     }
-    public LocalDateTime getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
@@ -79,11 +79,11 @@ public class Ad {
     public void setLatlong(String latlong) {
         this.latlong = latlong;
     }
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
-    
-    public Ad(int id, String description, int rooms, int area, int floors, Category category, Seller seller, boolean freeOfCharge, String imageUrl, String latlong, LocalDateTime createdAt) {
+
+    public Ad(int id, String description, int rooms, int area, int floors, Category category, Seller seller, boolean freeOfCharge, String imageUrl, String latlong, LocalDate createdAt) {
         this.id = id;
         this.description = description;
         this.rooms = rooms;
