@@ -6,9 +6,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.realestategui.RealEstateController">
    <left>
-      <ScrollPane prefHeight="400.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane fitToHeight="true" maxHeight="1.7976931348623157E308" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
-            <ListView fx:id="listView" onMouseClicked="#showData" prefHeight="400.0" prefWidth="200.0" />
+            <ListView fx:id="listView" maxHeight="1.7976931348623157E308" onMouseClicked="#showData" prefWidth="200.0" />
          </content>
       </ScrollPane>
    </left>
@@ -42,7 +42,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="sellerPhoneLabel">
+                  <Label fx:id="sellerPhoneLabel" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
@@ -57,7 +57,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="Hírdetések betöltése" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#countAds" prefHeight="0.0" prefWidth="0.0" text="Hírdetések betöltése" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

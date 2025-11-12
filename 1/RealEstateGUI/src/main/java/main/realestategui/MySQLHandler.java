@@ -105,25 +105,26 @@ public class MySQLHandler {
         }
     }
 
-    public static ArrayList<String> getNames(){
+    public static ArrayList<String[]> getNames(){
         String queryStr =
-                "SELECT name FROM `sellers`";
+                "SELECT name, phone FROM `sellers`";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(queryStr);
             ResultSet resultSet = stmt.executeQuery();
 
-            ArrayList<String> names = new ArrayList<>();
+            ArrayList<String[]> names = new ArrayList<>();
 
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
-                names.add(name);
+                String phone = resultSet.getString("phone");
+                names.add(new String[] {name, phone});
             }
             return names;
         }
         catch(Exception e){
             System.out.println("Data retrieval failed.");
-            return new ArrayList<String>();
+            return new ArrayList<String[]>();
         }
     }
 }

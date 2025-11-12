@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 
 public class RealEstateController implements Initializable {
     public static ArrayList<Ad> ads;
-    public static ArrayList<String> names;
+    public static ArrayList<String[]> names;
 
     @FXML Label sellerNameLabel;
     @FXML Label sellerAdsCountLabel;
@@ -24,18 +24,26 @@ public class RealEstateController implements Initializable {
     public void showData(){
         String selectedName = listView.getSelectionModel().getSelectedItem();
 
-        String sellerName = names.get(listView.getSelectionModel().getSelectedIndex());
-        String sellerPhone = "";
+        for(int i = 0; i < names.size(); i++){
+            if(names.get(i)[0].equals(selectedName)){
+                sellerNameLabel.setText(names.get(i)[0]);
+                sellerPhoneLabel.setText(names.get(i)[1]);
+                break;
+            }
+        }
+    }
+
+    @FXML
+    public void countAds(){
+        String selectedName = listView.getSelectionModel().getSelectedItem();
+
         int count = 0;
         for(Ad ad : ads){
             if(ad.getSeller().getName().equals(selectedName)){
-                sellerPhone = ad.getSeller().getPhone();
                 count++;
             }
         }
 
-        sellerNameLabel.setText(sellerName);
-        sellerPhoneLabel.setText(sellerPhone);
         sellerAdsCountLabel.setText(String.valueOf(count));
     }
 
@@ -47,6 +55,8 @@ public class RealEstateController implements Initializable {
         MySQLHandler.closeConnection();
 
 
-        listView.getItems().addAll(names);
+        for(String[] name : names){
+            listView.getItems().add(name[0]);
+        }
     }
 }
