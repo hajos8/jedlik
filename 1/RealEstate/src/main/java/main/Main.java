@@ -14,18 +14,16 @@ public class Main {
 
         // legkisebb távolság megkeresése
         int minIndex = 0;
-        double[] distances = DistanceTo(ads.getFirst().getLatlong(), "47.497912,19.040235");
-        double minDistance = distances[0] + distances[1];
+        double minDistance = ads.getFirst().DistanceTo("47.4164220114023,19.066342425796986");
 
         for(int i = 0; i < ads.size(); i++){
             Ad ad = ads.get(i);
+
             if(!ad.isFreeOfCharge()){
                 continue;
             }
 
-            distances = DistanceTo(ad.getLatlong(), "47.497912,19.040235");
-
-            double distance = distances[0] + distances[1];
+            double distance = ad.DistanceTo("47.4164220114023,19.066342425796986");
 
             if(distance < minDistance){
                 minDistance = distance;
@@ -60,20 +58,4 @@ public class Main {
         System.out.println(String.format("%.2f", (double)sum / count) + " m2");
     }
 
-    static double[] DistanceTo(String fromLatLong, String toLatLong){
-        String[] fromParts = fromLatLong.split(",");
-
-        double lat1 = Double.parseDouble(fromParts[0]);
-        double lon1 = Double.parseDouble(fromParts[1]);
-
-        String[] toParts = toLatLong.split(",");
-
-        double lat2 = Double.parseDouble(toParts[0]);
-        double lon2 = Double.parseDouble(toParts[1]);
-
-        double distanceLat = Math.sqrt(Math.pow(lat1, 2) + Math.pow(lat2, 2));
-        double distanceLon = Math.sqrt(Math.pow(lon1, 2) + Math.pow(lon2, 2));
-
-        return new double[]{distanceLat, distanceLon};
-    }
 }

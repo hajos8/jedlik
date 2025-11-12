@@ -96,4 +96,17 @@ public class Ad {
         this.latlong = latlong;
         this.createdAt = createdAt;
     }
+
+    public double DistanceTo(String cord) {
+        String[] CoordParts = cord.split(",");
+        double lat = Double.parseDouble(CoordParts[0]);
+        double lon = Double.parseDouble(CoordParts[1]);
+
+        double thisLat = Double.parseDouble(this.getLatlong().split(",")[0]);
+        double thisLon = Double.parseDouble(this.getLatlong().split(",")[1]);
+
+        double distanceLat = Math.abs(lat - thisLat);
+        double distanceLon = Math.abs(lon - thisLon);
+        return Math.sqrt(Math.pow(distanceLat, 2) + Math.pow(distanceLon, 2));
+    }
 }

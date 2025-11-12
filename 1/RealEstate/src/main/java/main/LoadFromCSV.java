@@ -26,7 +26,7 @@ public class LoadFromCSV {
                 int floors = Integer.parseInt(parts[3]);
                 int area = Integer.parseInt(parts[4]);
                 String description = parts[5];
-                boolean freeCharge = Boolean.parseBoolean(parts[6]);
+                boolean freeCharge = Integer.parseInt(parts[6]) == 1;
                 String imgUrl = parts[7];
                 LocalDate createAt = LocalDate.parse(parts[8]);
                 Seller seller = new Seller(Integer.parseInt(parts[9]), parts[10], parts[11]); //id, name, phone
