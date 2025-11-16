@@ -49,7 +49,7 @@ export default function NewAd() {
             form.reset();
             navigate('/offers');
         } else {
-            setHiba('Hiba történt a hirdetés feladásakor: ', {/*${responseJson.status}, $(responseStatus.nemtudom*/});
+            setHiba('Hiba történt a hirdetés feladásakor');
         }
     }
 

@@ -1,5 +1,5 @@
 .start {
-    background-image: url('/4/react-app/src/assets/real-estate-agent.png');
+    background-image: url('./assets/real-estate-agent.png');
     background-position: center;
     background-size: cover;
     min-height: 100vh;
